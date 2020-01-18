@@ -1,0 +1,29 @@
+{
+  "name": "exec-test",
+  "version": "0.0.1",
+  "description": "Exec",
+  "main": "index.js",
+  "bin": {
+    "abc": "./bin/cmd.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "!ia32",
+    "!arm",
+    "!mips"
+  ],
+  "engines": {
+    "node": ">=8.6"
+  },
+  "dependencies": {}
+}
