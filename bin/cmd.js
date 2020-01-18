@@ -7,30 +7,24 @@ var major = parseInt(match[1], 10)
 var minor = parseInt(match[2], 10)
 
 if (major >= 9 || (major === 8 && minor >= 6)) {
-  const cmd = (command) => {
-    var ls = spawn(path.join(__dirname, command) /*command*/ , [] /*args*/ , {} /*options, [optional]*/ );
-    ls.stdout.on('data', function (data) {
-      console.log(data.toString());
-    });
-
-    ls.stderr.on('data', function (data) {
-      console.log(data.toString());
-    });
-
-    ls.on('exit', function (code) {
+  const cmd = (command, args) => {
+    var sp = spawn(path.join(__dirname, command) /*command*/ , args.slice(2) /*args*/ , {} /*options, [optional]*/ );
+    sp.stdout.pipe(process.stdout);
+    sp.stderr.pipe(process.stderr);
+    sp.on('exit', function (code) {
       // console.log('child process exited with code ' + code);
     });
   }
 
   switch(os.type()) {
     case 'Linux':
-      cmd('linux-panda-api')
+      cmd('linux-panda-api', process.argv)
       break
     case 'Darwin':
-      cmd('mac-panda-api')
+      cmd('mac-panda-api', process.argv)
       break
     case 'Windows_NT':
-      cmd('win-panda-api.exe')
+      cmd('win-panda-api.exe', process.argv)
       break
   }
 } else {
