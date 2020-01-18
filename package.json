@@ -1,15 +1,10 @@
 {
-  "name": "exec-test",
-  "version": "0.0.8",
-  "description": "Exec",
-  "main": "index.js",
+  "name": "panda-api",
+  "version": "0.0.1",
+  "description": "Panda api是一个简单快速的接口文档管理工具",
   "bin": {
     "abc": "./bin/cmd.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
   "license": "MIT",
   "os": [
     "darwin",
@@ -24,6 +19,5 @@
   ],
   "engines": {
     "node": ">=8.6"
-  },
-  "dependencies": {}
+  }
 }
